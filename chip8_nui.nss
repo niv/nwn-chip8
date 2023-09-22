@@ -50,7 +50,8 @@ int nuiCreate()
                     NuiColor(254, 195, 10),
                     JSON_TRUE, // fill
                     JsonFloat(0.0), // line width
-                    NuiRect(PIXEL_SIZE * x, PIXEL_SIZE * y, PIXEL_SIZE, PIXEL_SIZE)
+                    NuiRect(PIXEL_SIZE * x, PIXEL_SIZE * y, PIXEL_SIZE, PIXEL_SIZE),
+                    NUI_DRAW_LIST_ITEM_ORDER_AFTER, NUI_DRAW_LIST_ITEM_RENDER_ALWAYS, TRUE
                 ));
             }
         }
@@ -101,7 +102,8 @@ int nuiCreate()
                     JSON_TRUE,
                     NuiColor(255, 0, 255),
                     NuiRect(0.0, REGVIEW_LINE_HEIGHT * reg, 15.0, REGVIEW_LINE_HEIGHT + REGVIEW_LINE_HEIGHT * reg),
-                    NuiBind("label_reg")
+                    NuiBind("label_reg"),
+                    NUI_DRAW_LIST_ITEM_ORDER_AFTER, NUI_DRAW_LIST_ITEM_RENDER_ALWAYS, TRUE
                 ));
             }
             json regLabels = NuiWidth(NuiSpacer(), 10.0);
@@ -119,7 +121,8 @@ int nuiCreate()
                     JSON_TRUE,
                     NuiColor(255, 255, 0),
                     NuiRect(25.0, REGVIEW_LINE_HEIGHT * reg, 600.0, REGVIEW_LINE_HEIGHT + REGVIEW_LINE_HEIGHT * reg),
-                    NuiBind("reg", 1, reg >= REG_I ? 3 : 2, 2)
+                    NuiBind("reg", NUI_NUMBER_FLAG_HEX, reg >= REG_I ? 3 : 2, 2),
+                    NUI_DRAW_LIST_ITEM_ORDER_AFTER, NUI_DRAW_LIST_ITEM_RENDER_ALWAYS, TRUE
                 ));
             }
 
@@ -139,7 +142,8 @@ int nuiCreate()
                     JSON_TRUE,
                     NuiColor(128, 255, 255), // TODO: color change on value change
                     NuiRect(60.0, REGVIEW_LINE_HEIGHT * (sp+4), 100.0, REGVIEW_LINE_HEIGHT + REGVIEW_LINE_HEIGHT * (sp+4)),
-                    NuiBind("stack")
+                    NuiBind("stack"),
+                    NUI_DRAW_LIST_ITEM_ORDER_AFTER, NUI_DRAW_LIST_ITEM_RENDER_ALWAYS, TRUE
                 ));
             }
 
